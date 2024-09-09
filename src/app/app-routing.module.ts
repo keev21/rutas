@@ -3,22 +3,26 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full' 
   },
   {
-    path: 'gestion-tareas',
-    loadChildren: () => import('./gestion-tareas/gestion-tareas.module').then( m => m.GestionTareasPageModule)
+    path: 'home', 
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'detalles-tarea',
-    loadChildren: () => import('./detalles-tarea/detalles-tarea.module').then( m => m.DetallesTareaPageModule)
+    path: 'gestion-tareas', 
+    loadChildren: () => import('./gestion-tareas/gestion-tareas.module').then(m => m.GestionTareasPageModule)
   },
+  {
+    path: 'gestion-tareas/:id', 
+    loadChildren: () => import('./gestion-tareas/gestion-tareas.module').then(m => m.GestionTareasPageModule)
+  },
+  {
+    path: 'detalles-tarea/:id', 
+    loadChildren: () => import('./detalles-tarea/detalles-tarea.module').then(m => m.DetallesTareaPageModule)
+  }
 ];
 
 @NgModule({
@@ -27,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

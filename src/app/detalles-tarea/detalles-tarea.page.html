@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>detalles-tarea</ion-title>
+    <ion-title>Detalles de Tarea</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalles-tarea</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content *ngIf="tarea">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ tarea.titulo }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ tarea.descripcion }}</p>
+      <p>Estado: {{ tarea.estado }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
